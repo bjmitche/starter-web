@@ -1,0 +1,26 @@
+docker network ls
+docker network inspect
+docker network create —driver
+#the driver option allows you to create networks with special features
+docker network connect [network id] [container id]
+docker network disconnect
+
+on a non-default network DNS resolves on container name
+example:
+	docker network create my_net
+	docker container run -d —name engine1 —network my_net nginx
+	docker container run -d —name engine2 —network my_net nginx
+	docker container exec -it engine2 ping engine1 
+
+DockerFile Composition:
+
+Every file starts with a FROM
+RUN and chaining commands with && is to ensure that all commands are executed at that layer
+Link application logs to the Docker log handling
+Expose ports on the container to the virtual network
+Final run command
+CMD is final ‘run’ command
+
+Assignment 29 - Compare cURL versions from cents:7 to ubuntu:14.04
+
+docker container run -it centos:7 bash
